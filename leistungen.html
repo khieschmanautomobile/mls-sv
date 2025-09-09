@@ -77,23 +77,25 @@
 
 <footer>© MLS Sachverständigenbüro · Alle Rechte vorbehalten.</footer>
 
-
 <script>
-(function(){
+(function(){ 
   function bustUrl(u){
-    try{
+    try{ 
       var a = document.createElement('a');
       a.href = u;
       var sep = a.search ? '&' : '?';
-      return a.pathname + a.search + sep + 'v=' + Date.now();
-    }catch(e){ return u + (u.indexOf('?')>-1?'&':'?') + 'v=' + Date.now(); }
+      return a.pathname + a.search + sep + 'v=1757411957';
+    }catch(e){ return u + (u.indexOf('?')>-1?'&':'?') + 'v=1757411957'; }
   }
   function reviveVideo(v){
     if(!v) return;
     v.muted = true; v.autoplay = true; v.loop = true;
     v.playsInline = true; v.setAttribute('playsinline',''); v.setAttribute('webkit-playsinline','');
     v.preload = 'auto';
-    // don't bust video src for local testing
+    // cache-bust sources
+    v.querySelectorAll('source').forEach(function(s){
+      if(!s.dataset.nobust) s.src = bustUrl(s.getAttribute('src'));
+    });
     try{ v.load(); }catch(e){}
     try{ v.pause(); }catch(e){}
     try{ v.currentTime = 0.001; }catch(e){}
@@ -101,7 +103,7 @@
   }
   function reviveAll(){
     document.querySelectorAll('video').forEach(reviveVideo);
-    // bust only background image
+    // background image <img id="bgimg">
     var bg = document.getElementById('bgimg');
     if(bg && !bg.dataset.nobust) bg.src = bustUrl(bg.getAttribute('data-src'));
   }
