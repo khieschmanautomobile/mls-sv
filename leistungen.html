@@ -21,8 +21,34 @@
   .btn{display:inline-block;padding:12px 20px;background:var(--gold);color:#111;border-radius:6px;text-decoration:none;font-weight:700}
   footer{background:var(--card);color:var(--muted);text-align:center;padding:20px;border-top:1px solid #1e2228;margin-top:40px}
   video{width:100%;border-radius:10px;margin:12px 0}
+
+/* === KFZ-Widget Styles (injected) === */
+    ._mcw_lh_container{display:inline-block;font-family:"Rubik","sans-serif";border:1px solid #e2e2e2;color:#333;background-color:#fff}
+    @media (max-width:600px){._mcw_lh_container{width:100%}}
+    ._mcw_lh_title{color:#333;font-size:1.8rem;font-weight:500;padding-top:.9rem;text-align:center}
+    ._mcw_lh_table{padding:.5rem 1rem 1rem 1rem;vertical-align:top;text-align:left;display:inline-block}
+    ._mcw_lh_table td{font-weight:300;padding:.5rem;vertical-align:middle;border-top:1px solid #dee2e6}
+    ._mcw_lh_table td a:visited,a:active,a{text-decoration:none;color:blue;text-transform:capitalize}
+    ._mcw_lh_label{padding:.5rem;font-size:1.1rem;font-weight:400;text-align:left}
+    .mcw_lh_successclr{background-color:#149b45;border-radius:3px;display:block;padding:7px 8px 2px;color:#fff;font-size:13px;font-weight:700;font-family:arial;line-height:13px;max-width:150px}
+    .mcw_lh_alertclr{background-color:#e1124f;border-radius:3px;display:block;padding:7px 8px 2px;color:#fff;font-size:13px;font-weight:700;font-family:arial;line-height:13px;max-width:150px}
+    .mcw_lh_alertclr svg,.mcw_lh_successclr svg{vertical-align:top}
+    .mcw_lh_successclr div,.mcw_lh_alertclr div{display:inline-block}
+    @font-face{font-family:"Font Awesome 5 900";src:url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/webfonts/fa-solid-900.eot");src:url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"),url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/webfonts/fa-solid-900.woff2") format("woff2"),url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/webfonts/fa-solid-900.woff") format("woff"),url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/webfonts/fa-solid-900.ttf") format("truetype"),url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/webfonts/fa-solid-900.svg#fontawesome") format("svg")}
+    ._mcw_lh_icon::before{display:inline-block;font-style:normal;font-variant:normal;text-rendering:auto;-webkit-font-smoothing:antialiased;color:#333}
+    ._mcw_lh_history:before{font-family:"Font Awesome 5 900";content:"\f1da";padding-right:10px;font-size:1em}
+    /* helper wrapper for dark themes */
+    .widget-wrap{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px}
 </style>
 
+
+<script src="https://storage.googleapis.com/mc-widgets/marketcheck-widgets.v1.0.js"></script>
+
+<script>
+  // === Kontakt-Endpoint (ersetze die ID!) ===
+  // Formspree-Beispiel: https://formspree.io/f/abcdwxyz
+  const FORM_ENDPOINT = "https://formsubmit.co/hassan.awad@outlook.de";
+</script>
 </head>
 <body>
 <header>
@@ -73,6 +99,195 @@
       <li>Beratung bei Unfallabwicklung & Kommunikation mit Versicherungen</li>
     </ul>
   </section>
+
+<!-- BEGIN: KFZ-Widget Schnell-Check (injected) -->
+<section class="card" style="margin-top:18px">
+  <h2 style="margin-top:0">Schnell-Check: Fahrzeughistorie / Bewertung</h2>
+  <p style="opacity:.85;margin-top:0">So könnte dein Info-Widget auf der Leistungsseite aussehen. Das weiße Widget steht bewusst im Kontrast zum dunklen Layout.</p>
+
+  <div class="widget-wrap">
+    <div class="_mcw_lh_container" style="max-width:700px;">
+      <div class="_mcw_lh_title">
+        <span class="_mcw_lh_icon _mcw_lh_history"></span>
+        Fahrzeughistorie & Schnell-Check
+      </div>
+      <table class="_mcw_lh_table">
+        <tr>
+          <td class="_mcw_lh_label">Marke/Modell</td>
+          <td>Audi A4 2.0 TDI</td>
+        </tr>
+        <tr>
+          <td class="_mcw_lh_label">Erstzulassung</td>
+          <td>03/2020</td>
+        </tr>
+        <tr>
+          <td class="_mcw_lh_label">Kilometer</td>
+          <td>62.300 km</td>
+        </tr>
+        <tr>
+          <td class="_mcw_lh_label">FIN (VIN)</td>
+          <td>WAUZZZxxxxxxxx123</td>
+        </tr>
+        <tr>
+          <td class="_mcw_lh_label">Status</td>
+          <td>
+            <span class="mcw_lh_successclr"><div>keine Auffälligkeiten</div></span>
+            <!-- Oder: <span class="mcw_lh_alertclr"><div>Unfallhinweis vorhanden</div></span> -->
+          </td>
+        </tr>
+        <tr>
+          <td class="_mcw_lh_label">Dokumente</td>
+          <td><a href="#gutachten">Gutachten ansehen</a> · <a href="#bilder">Schadensbilder</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- Marketcheck Widget aktiviert -->
+  <div class="mc-widget" data-type="listing_history" data-vin="WAUZZZxxxxxxxx123" data-width="100%" data-height="380"></div>
+</section>
+<!-- END: KFZ-Widget Schnell-Check (injected) -->
+
+
+<!-- BEGIN: Anfrage-Formular mit Foto-Upload (injected) -->
+<form id="anfrageForm" novalidate action="" method="POST"
+      data-service="formspree"> style="max-width:700px;margin:16px auto;" enctype="multipart/form-data">
+  <input type="hidden" name="_subject" value="Neue Anfrage über Leistungen (KFZ-Gutachten)">
+  <input type="hidden" name="_template" value="table">
+  <input type="hidden" name="_next" value="danke.html">
+  <input type="hidden" name="_captcha" value="false">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+    <div>
+      <label for="name" style="display:block;margin:6px 0 4px;">Name</label>
+      <input id="name" name="name" type="text" required placeholder="Vor- und Nachname" style="width:100%;padding:10px;border:1px solid #ccc;border-radius:4px;">
+    </div>
+    <div>
+      <label for="telefon" style="display:block;margin:6px 0 4px;">Telefon</label>
+      <input id="telefon" name="telefon" type="tel" required placeholder="+49 ..." style="width:100%;padding:10px;border:1px solid #ccc;border-radius:4px;">
+    </div>
+    <div>
+      <label for="plz" style="display:block;margin:6px 0 4px;">PLZ</label>
+      <input id="plz" name="plz" type="text" placeholder="z. B. 10115" style="width:100%;padding:10px;border:1px solid #ccc;border-radius:4px;" maxlength="5" inputmode="numeric">
+    </div>
+    <div>
+      <label for="versicherung" style="display:block;margin:6px 0 4px;">Versicherung</label>
+      <input id="versicherung" name="versicherung" type="text" placeholder="Versicherer (optional)" style="width:100%;padding:10px;border:1px solid #ccc;border-radius:4px;">
+    </div>
+  </div>
+
+  <label for="beschreibung" style="display:block;margin:12px 0 4px;">Schadenbeschreibung</label>
+  <textarea id="beschreibung" name="beschreibung" rows="4" placeholder="Kurze Beschreibung des Unfalls / Schadens ..." style="width:100%;padding:10px;border:1px solid #ccc;border-radius:4px;"></textarea>
+
+  <label for="fotos" style="display:block;margin:12px 0 4px;">Schadensfotos hochladen</label>
+  <input id="fotos" name="fotos" type="file" accept="image/*" multiple style="display:block;margin-bottom:6px;">
+  <small style="display:block;opacity:.8">Bis zu 10 Bilder, je max. 10 MB. Es werden nur lokal Vorschaubilder angezeigt.</small>
+  <div id="preview" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;"></div>
+
+  <label for="vin" style="display:block;margin:12px 0 4px;">FIN (VIN) – für Schnell-Check</label>
+  <input id="vin" name="vin" type="text" placeholder="WAUZZZ..." style="width:100%;padding:10px;border:1px solid #ccc;border-radius:4px;">
+
+  <div style="margin-top:12px; display:flex; align-items:flex-start; gap:8px;">
+    <input id="ds" type="checkbox" required style="margin-top:4px;">
+    <label for="ds" style="opacity:.9">Ich bin mit der Verarbeitung meiner Daten zur Kontaktaufnahme einverstanden (DSGVO-Hinweis, <a href="/datenschutz" target="_blank" rel="noopener">Details</a>).</label>
+  </div>
+
+  <button type="submit" style="margin-top:12px;padding:10px 14px;border:0;border-radius:4px;background:#149b45;color:#fff;cursor:pointer;">Anfrage senden</button>
+  <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+</form>
+
+<script>
+(function(){
+  /* PLZ trim */
+  const plz = document.getElementById('plz');
+  if(plz){
+    const tidy = () => { plz.value = (plz.value||'').replace(/\s+/g,'').slice(0,5); };
+    plz.addEventListener('input', tidy);
+    plz.addEventListener('blur', tidy);
+  }
+
+  const input = document.getElementById('fotos');
+  const preview = document.getElementById('preview');
+  input && input.addEventListener('change', function(){
+    preview.innerHTML = '';
+    const files = Array.from(this.files || []).slice(0,10);
+    for(const f of files){
+      if(f.size > 10*1024*1024){
+        const warn = document.createElement('div');
+        warn.textContent = 'Datei zu groß: ' + f.name;
+        warn.style.color = '#e66';
+        preview.appendChild(warn);
+        continue;
+      }
+      const img = document.createElement('img');
+      img.style.maxWidth = '120px'; img.style.maxHeight = '90px';
+      img.style.objectFit = 'cover'; img.style.border = '1px solid #ccc';
+      img.style.borderRadius = '6px'; img.style.padding = '2px';
+      img.alt = f.name;
+      const reader = new FileReader();
+      reader.onload = e => img.src = e.target.result;
+      reader.readAsDataURL(f);
+      preview.appendChild(img);
+    }
+  });
+
+  const vinInput = document.getElementById('vin');
+  const mc = document.querySelector('.mc-widget[data-type="listing_history"]');
+  if(vinInput && mc){
+    vinInput.addEventListener('input', () => {
+      mc.setAttribute('data-vin', vinInput.value.trim() || 'WAUZZZxxxxxxxx123');
+      if(window.MC && typeof window.MC.init === 'function'){ window.MC.init(); }
+    });
+  }
+
+  const form = document.getElementById('anfrageForm');
+  const plzField = document.getElementById('plz');
+  form && form.addEventListener('submit', async function(ev){
+    ev.preventDefault();
+    if (!FORM_ENDPOINT || /DEINE_FORM_ID/.test(FORM_ENDPOINT)) {
+      alert('Demo: Bitte zuerst im Code deine Form-ID in FORM_ENDPOINT eintragen.');
+      return;
+    }
+    // Custom PLZ validation
+    if (plzField) {
+      const val = (plzField.value||'').replace(/\s+/g,'').trim();
+      if (!/^\d{5}$/.test(val)) {
+        alert('Bitte eine gültige 5-stellige Postleitzahl eingeben.');
+        return;
+      }
+    }
+const submitBtn = form.querySelector('button[type="submit"]');
+    const originalText = submitBtn ? submitBtn.textContent : '';
+    if(submitBtn){ submitBtn.disabled = true; submitBtn.textContent = 'Senden…'; }
+    try{
+      const data = new FormData(form);
+      // Optional: subject fallback
+      if(!data.get('_subject')) data.append('_subject','Neue Anfrage (KFZ-Gutachten)');
+      const res = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if(res.ok){
+        const next = form.querySelector('input[name="_next"]');
+        if(next && next.value){ window.location.href = next.value; return; }
+        alert('Danke! Ihre Anfrage wurde erfolgreich übermittelt.');
+        form.reset();
+        const preview = document.getElementById('preview'); if(preview) preview.innerHTML='';
+      } else {
+        const t = await res.text();
+        alert('Senden fehlgeschlagen: ' + t);
+      }
+    }catch(err){
+      alert('Netzwerkfehler: ' + (err && err.message ? err.message : err));
+    }finally{
+      if(submitBtn){ submitBtn.disabled = false; submitBtn.textContent = originalText; }
+    }
+  });
+})();
+</script>
+<!-- END: Anfrage-Formular mit Foto-Upload (injected) -->
+
+
 </main>
 
 <footer>© MLS Sachverständigenbüro · Alle Rechte vorbehalten.</footer>
