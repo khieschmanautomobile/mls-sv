@@ -9,6 +9,53 @@
 
   <!-- ===== Styles (embedded) ===== -->
   <style>
+    /* ======= deine bisherigen Styles ======= */
+    body { background:#111; color:#eee; font-family:sans-serif; }
+
+    /* Modal usw. */
+    .modal p { color: #fff; font-weight: bold; }
+
+    /* ===== Mobile-Fix: unter deinen bestehenden Styles einfügen ===== */
+    * { box-sizing: border-box; }
+    img, video { max-width: 100%; height: auto; display: block; }
+    .container, .wrap, .inner { width: min(1200px, 100%); padding-inline: 16px; margin-inline: auto; }
+
+    h1 { font-size: clamp(28px, 4.5vw, 44px); line-height: 1.15; }
+    h2 { font-size: clamp(22px, 3.2vw, 32px); line-height: 1.2; }
+    p, li, label, input, textarea, button { font-size: clamp(14px, 2.5vw, 18px); }
+
+    header { position: sticky; top: 0; z-index: 100; }
+    header nav { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+    header nav a { padding: 10px 12px; border-radius: 10px; }
+
+    .hero, .hero-content { padding-block: clamp(32px, 8vw, 96px); }
+    video, .hero video, .bg-video {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .grid, .cards, .features, .leistungen-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+    }
+    @media (max-width: 992px) {
+      .grid, .cards, .features, .leistungen-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    }
+    @media (max-width: 680px) {
+      .grid, .cards, .features, .leistungen-grid { grid-template-columns: 1fr; }
+    }
+
+    form, .contact-form { width: 100%; }
+    input, select, textarea { width: 100%; }
+
+    .modal { width: min(720px, 92vw); margin: 0 auto; }
+    .modal p { color: #fff; font-weight: 600; }
+
+    section { padding-block: clamp(28px, 7vw, 80px); }
+    footer { padding: 24px 16px; }
+
     :root{
       --bg:#0b0d12;
       --bg-soft:#10131a;
