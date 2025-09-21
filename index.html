@@ -95,14 +95,14 @@
     <div class="container nav">
       
 <div class="brand">
-  <img src="logo-mls.png" alt="MLS Logo" class="brand-logo" style="height:60px;object-fit:contain;" />
+  <img src="logo-mls.png" alt="MLS Sachverständigenbüro Logo" class="brand-logo" />
   <div>
-    <div><strong>MLS Sachverständigenbüro</strong></div>
-    <div class="mini">KFZ-Sachverständiger & Unfallgutachter</div>
+    <div>MLS Sachverständigenbüro</div>
+    <div class="mini" style="opacity:.7">Berlin & Brandenburg</div>
   </div>
 </div>
 <nav class="nav-links">
-        <a href="impressum.html" target="_self"> <a href="impressum.html">Impressum</a> • Datenschutz auf Anfrage
+        <a href="impressum.html" target="_self">Impressum</a>
         <a href="#leistungen">Leistungen</a>
         <a href="#video">Video</a>
         <a href="#kontakt">Kontakt</a>
@@ -124,9 +124,18 @@
           <span class="badge">Berlin & Brandenburg</span>
         </div>
         <div class="tuv">
-  <img src="tuv-logo.png" alt="TÜV Zertifiziert Logo" style="width:80px;height:auto;border-radius:6px;box-shadow:0 4px 12px rgba(0,0,0,.4)" />
-  <div class="mini">TÜV-zertifiziert – geprüfte Prozesse & dokumentierte Qualität</div>
-</div>
+          <!-- Simple inline TÜV-like badge (no external asset needed) -->
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1">
+                <stop offset="0" stop-color="#3b82f6"/><stop offset="1" stop-color="#22d3ee"/>
+              </linearGradient>
+            </defs>
+            <path d="M32 4l22 12v32L32 60 10 48V16z" fill="url(#g1)" opacity=".25"/>
+            <path d="M32 10l16 8v28L32 54 16 46V18z" fill="url(#g1)"/>
+            <text x="32" y="38" font-size="16" font-weight="900" text-anchor="middle" fill="white">TÜV</text>
+          </svg>
+          <div class="mini">TÜV‑zertifiziert – geprüfte Prozesse & dokumentierte Qualität</div>
         </div>
       </div>
       <div class="card">
@@ -220,7 +229,7 @@
       <div>
         <div class="mini">© <span id="yr"></span> MLS Sachverständigenbüro – Berlin & Brandenburg</div>
         <div class="sep"></div>
-        <div class="mini"><a class="mini" href="impressum.html"> <a href="impressum.html">Impressum</a> • Datenschutz auf Anfrage • Datenschutz auf Anfrage</div>
+        <div class="mini"><a class="mini" href="impressum.html">Impressum</a> • Datenschutz auf Anfrage</div>
       </div>
       <div style="justify-self:end">
         <a class="mini" href="#video">Zum Video ↑</a>
