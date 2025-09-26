@@ -1,0 +1,351 @@
+
+<!DOCTYPE html>
+
+<html lang="de">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>MLS Sachverständigenbüro – Kfz-Gutachten Berlin &amp; Brandenburg</title>
+<meta content="MLS – Unabhängige Kfz-Gutachten, schnelle Hilfe nach Unfällen, Vor-Ort-Service in Berlin &amp; Brandenburg. TÜV-zertifiziert. 24/7 Erstkontakt." name="description"/>
+<!-- ===== Styles (embedded) ===== -->
+<style>
+    /* ======= deine bisherigen Styles ======= */
+    body { background:#111; color:#eee; font-family:sans-serif; }
+
+    /* Modal usw. */
+    .modal p { color: #fff; font-weight: bold; }
+
+    /* ===== Mobile-Fix: unter deinen bestehenden Styles einfügen ===== */
+    * { box-sizing: border-box; }
+    img, video { max-width: 100%; height: auto; display: block; }
+    .container, .wrap, .inner { width: min(1200px, 100%); padding-inline: 16px; margin-inline: auto; }
+
+    h1 { font-size: clamp(28px, 4.5vw, 44px); line-height: 1.15; }
+    h2 { font-size: clamp(22px, 3.2vw, 32px); line-height: 1.2; }
+    p, li, label, input, textarea, button { font-size: clamp(14px, 2.5vw, 18px); }
+
+    header { position: sticky; top: 0; z-index: 100; }
+    header nav { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+    header nav a { padding: 10px 12px; border-radius: 10px; }
+
+    .hero, .hero-content { padding-block: clamp(32px, 8vw, 96px); }
+    video, .hero video, .bg-video {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .grid, .cards, .features, .leistungen-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+    }
+    @media (max-width: 992px) {
+      .grid, .cards, .features, .leistungen-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    }
+    @media (max-width: 680px) {
+      .grid, .cards, .features, .leistungen-grid { grid-template-columns: 1fr; }
+    }
+
+    form, .contact-form { width: 100%; }
+    input, select, textarea { width: 100%; }
+
+    .modal { width: min(720px, 92vw); margin: 0 auto; }
+    .modal p { color: #fff; font-weight: 600; }
+
+    section { padding-block: clamp(28px, 7vw, 80px); }
+    footer { padding: 24px 16px; }
+
+    :root{
+      --bg:#0b0d12;
+      --bg-soft:#10131a;
+      --card:#141823;
+      --text:#e6e9ef;
+      --muted:#a7b0c0;
+      --brand:#3b82f6;
+      --brand-2:#22d3ee;
+      --accent:#10b981;
+      --danger:#ef4444;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:radial-gradient(1200px 600px at 80% 0%, #152036 10%, rgba(21,32,54,0) 60%), var(--bg);
+      color:var(--text); font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, Noto Sans, "Apple Color Emoji","Segoe UI Emoji";}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{max-width:1200px;margin:0 auto;padding:0 20px}
+    /* Header */
+    header{position:sticky;top:0;z-index:50;background:rgba(16,19,26,.7);backdrop-filter:saturate(140%) blur(10px); border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.3px}
+    .brand-badge{display:none}
+    .brand-logo{width:44px;height:44px;object-fit:contain;border-radius:8px;box-shadow:var(--shadow);background:#0c111b;padding:4px}
+    .nav-links{display:flex;gap:18px;flex-wrap:wrap}
+    .nav-links a{opacity:.9;padding:8px 12px;border-radius:12px}
+    .nav-links a:hover{background:rgba(255,255,255,.06)}
+    .cta{display:inline-flex;gap:10px;align-items:center;padding:10px 14px;border-radius:14px;background:linear-gradient(135deg,var(--brand),var(--accent));font-weight:700; box-shadow:var(--shadow)}
+    .cta:hover{transform:translateY(-1px)}
+    /* Hero */
+    .hero{padding:64px 0 28px;position:relative;overflow:hidden}
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}
+    .kicker{font-size:13px; letter-spacing:.16em; text-transform:uppercase; color:var(--brand-2); font-weight:800}
+    .title{font-size: clamp(28px, 6vw, 54px); line-height:1.05; margin:10px 0 12px}
+    .lead{color:var(--muted); font-size: clamp(15px, 2.6vw, 18px)}
+    .badges{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0 24px}
+    .badge{padding:6px 10px;border:1px solid rgba(255,255,255,.12);border-radius:999px;color:#cfe6ff;background:rgba(59,130,246,.1)}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.08); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow)}
+    .video-shell{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:16/9;background:linear-gradient(135deg,#1f2937,#0b0d12)}
+    .video-shell video{width:100%;height:100%;object-fit:cover;display:block}
+    .video-hint{position:absolute;inset:auto 12px 12px auto;background:rgba(0,0,0,.55); padding:6px 10px;border-radius:12px;font-size:12px}
+    /* Service cards */
+    .section{padding:48px 0}
+    .grid-3{display:grid;gap:16px;grid-template-columns:repeat(3,1fr)}
+    .service{cursor:pointer;transition:transform .15s ease, box-shadow .2s ease; border:1px solid rgba(255,255,255,.08)}
+    .service:hover{transform:translateY(-2px); box-shadow:0 18px 40px rgba(0,0,0,.35)}
+    .service h3{margin:8px 0 6px;font-size:20px}
+    ..service p {
+  color: #ffffff;   /* Weiß */
+  margin: 0;
+}
+    .pill{display:inline-flex;align-items:center;gap:8px;font-size:12px;color:#d0ffe7;background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.28); padding:6px 10px;border-radius:999px}
+    /* TÜV logo (inline SVG wrapper) */
+    .tuv{display:inline-flex;align-items:center;gap:10px}
+    .tuv svg{width:38px;height:38px}
+    /* Kontakt */
+    form{display:grid;gap:12px}
+    .row{display:grid;gap:12px;grid-template-columns:1fr 1fr}
+    input,textarea,select{width:100%;background:#0f1320;border:1px solid rgba(255,255,255,.1);color:var(--text);padding:12px 14px;border-radius:12px}
+    textarea{min-height:120px;resize:vertical}
+    .form-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;background:linear-gradient(135deg,var(--brand),var(--brand-2));border:none;color:white;font-weight:700;cursor:pointer}
+    .btn.secondary{background:transparent;border:1px solid rgba(255,255,255,.18)}
+    .note{font-size:12px;color:var(--muted)}
+    /* Footer */
+    footer{padding:40px 0 80px;color:var(--muted)}
+    .footer-grid{display:grid;gap:18px;grid-template-columns:1.2fr .8fr}
+    .mini{font-size:13px}
+    .sep{height:1px;background:linear-gradient(90deg, rgba(255,255,255,.05), rgba(255,255,255,.0)) ; margin:28px 0}
+    /* Modal */
+    dialog{border:none;border-radius:16px;padding:0;background:transparent}
+    .modal{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:16px;max-width:640px;padding:22px;box-shadow:var(--shadow)}
+    .modal h3{margin:0 0 6px}
+    ..modal p {
+    color: #ffffff;     /* Weiß */
+    font-weight: bold;  /* Fett */
+    }
+    .modal .close{position:absolute;right:10px;top:10px;background:transparent;border:1px solid rgba(255,255,255,.15);color:var(--text);border-radius:10px;padding:6px 8px;cursor:pointer}
+    @media (max-width: 900px){
+      .hero-grid{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr}
+      .row{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+<!-- ===== Header ===== -->
+<header>
+<div class="container nav">
+<div class="brand">
+<a href="index.html"><img alt="MLS Logo" src="jpeg.jpg" style="height: 60px;"/></a>
+<div>
+<div>MLS Sachverständigenbüro</div>
+<div class="mini" style="opacity:.7">Berlin &amp; Brandenburg</div>
+</div>
+</div>
+<nav class="nav-links">
+<a href="#leistungen">Leistungen</a>
+<a href="#video">Video</a>
+<a href="#kontakt">Kontakt</a>
+<a class="cta" href="tel:+4917681333544">24/7 Anrufen</a>
+</nav>
+</div>
+</header>
+<!-- ===== Hero ===== -->
+<section class="hero">
+<div class="container hero-grid">
+<div>
+<span class="kicker">Unfall? Ruhig bleiben – wir regeln das.</span>
+<h1 class="title">Unabhängige Kfz-Gutachten mit <span style="background:linear-gradient(135deg,var(--brand),var(--brand-2)); -webkit-background-clip:text; background-clip:text; color:transparent">TÜV-zertifizierter</span> Expertise.</h1>
+<p class="lead">Schnelle Hilfe, faire Regulierung und maximale Transparenz. Wir dokumentieren <strong>alle Schäden</strong>, kommunizieren souverän mit der Versicherung und kommen auf Wunsch <strong>direkt zu Ihnen</strong>.</p>
+<div class="badges">
+<span class="badge">24/7 Erstkontakt</span>
+<span class="badge">Vor-Ort-Service</span>
+<span class="badge">Berlin &amp; Brandenburg</span>
+</div>
+<div class="tuv">
+<!-- Simple inline TÜV-like badge (no external asset needed) -->
+<svg aria-hidden="true" viewbox="0 0 64 64">
+<defs>
+<lineargradient id="g1" x1="0" x2="1">
+<stop offset="0" stop-color="#3b82f6"></stop><stop offset="1" stop-color="#22d3ee"></stop>
+</lineargradient>
+</defs>
+<path d="M32 4l22 12v32L32 60 10 48V16z" fill="url(#g1)" opacity=".25"></path>
+<path d="M32 10l16 8v28L32 54 16 46V18z" fill="url(#g1)"></path>
+<text fill="white" font-size="16" font-weight="900" text-anchor="middle" x="32" y="38">TÜV</text>
+</svg>
+<div class="mini">TÜV‑zertifiziert – geprüfte Prozesse &amp; dokumentierte Qualität</div>
+</div>
+</div>
+<div class="card">
+<div class="video-shell" id="video">
+<!-- ⚠️ Ersetze 'sora.mp4' durch deinen echten Dateinamen (z. B. 'b814a389-4d18-4c19-9062-25fa6e5bfc69.mp4') -->
+<video controls="" id="heroVideo" playsinline="" poster="" preload="metadata">
+<source src="sora.mp4" type="video/mp4"/>
+            Dein Browser unterstützt das Video-Tag nicht.
+          </video>
+<div class="video-hint">Falls kein Bild: Dateiname anpassen → <code>sora.mp4</code> ersetzen</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ===== Leistungen (3 klickbare Karten) ===== -->
+<section class="section" id="leistungen">
+<div class="container">
+<h2 style="margin:0 0 14px">Leistungen</h2>
+<p class="mini" style="margin:0 0 16px;color:var(--muted)">Klicken für Details</p>
+<div class="grid-3">
+<article class="card service" data-modal="m-247">
+<span class="pill">24/7 Erstkontakt</span>
+<h3>Wir sind rund um die Uhr erreichbar</h3>
+<p>Telefonisch &amp; via WhatsApp – sofortige Einschätzung und die nächsten Schritte.</p>
+</article>
+<article class="card service" data-modal="m-onsite">
+<span class="pill">Vor‑Ort‑Service</span>
+<h3>Schnell bei Ihnen</h3>
+<p>Nach dem Telefonat kommen wir in Berlin &amp; Brandenburg direkt zu Ihnen.</p>
+</article>
+<article class="card service" data-modal="m-tuv">
+<span class="pill">TÜV zertifiziert</span>
+<h3>Warum das wichtig ist</h3>
+<p>Beste Techniken, saubere Abläufe – für starke Ergebnisse mit Versicherungen.</p>
+</article>
+</div>
+</div>
+</section>
+<!-- ===== Kontakt ===== -->
+<section class="section" id="kontakt">
+<div class="container">
+<div class="card">
+<h2 style="margin-top:0">Kontakt</h2>
+<p class="mini">Ansprechpartner: <a href="mailto:Khieschman@mls-sv.de"><strong>Khieschman@mls-sv.de</strong></a></p>
+<!-- ✅ FormSubmit: sendet ohne Mailprogramm (einfach & kostenlos). 
+             Du erhältst beim ersten Mal eine Verifizierungs‑Mail. Danach funktionieren Einsendungen direkt.
+             Mehr erfahren: formsubmit.co -->
+<form action="https://formsubmit.co/Khieschman@mls-sv.de" id="contactForm" method="POST">
+<!-- FormSubmit Optionen -->
+<input name="_captcha" type="hidden" value="false"/>
+<input name="_template" type="hidden" value="table"/>
+<input name="_subject" type="hidden" value="Neue Kontaktanfrage – MLS Webseite"/>
+<input name="_next" type="hidden" value=""/>
+<div class="row">
+<div><label class="mini" for="name">Name</label><input id="name" name="name" placeholder="Ihr Name" required=""/></div>
+<div><label class="mini" for="email">E‑Mail</label><input id="email" name="email" placeholder="Ihre E‑Mail" required="" type="email"/></div>
+</div>
+<div class="row">
+<div><label class="mini" for="tel">Telefon</label><input id="tel" name="telefon" placeholder="+49 …" type="tel"/></div>
+<div>
+<label class="mini" for="reason">Anliegen</label>
+<select id="reason" name="anliegen">
+<option value="Unfallschaden">Unfallschaden</option>
+<option value="Bewertung">Fahrzeugbewertung</option>
+<option value="Sonstiges">Sonstiges</option>
+</select>
+</div>
+</div>
+<div>
+<label class="mini" for="msg">Nachricht</label>
+<textarea id="msg" name="nachricht" placeholder="Wie können wir helfen?" required=""></textarea>
+</div>
+<div class="form-actions">
+<button class="btn" type="submit">Nachricht senden</button>
+<a class="btn secondary" href="https://wa.me/4917681333544" rel="noopener" target="_blank">WhatsApp</a>
+<span class="note">Direkt &amp; ohne Mail‑Programm. Versand an <strong>Khieschman@mls-sv.de</strong>.</span>
+</div>
+</form>
+</div>
+</div>
+</section>
+<!-- ===== Footer ===== -->
+<footer>
+<div class="container footer-grid">
+<div>
+<div class="mini">© <span id="yr"></span> MLS Sachverständigenbüro – Berlin &amp; Brandenburg</div>
+<div class="sep"></div>
+<div class="mini"><a class="mini" href="impressum.html">Impressum</a> • Datenschutz auf Anfrage</div>
+</div>
+<div style="justify-self:end">
+<a class="mini" href="#video">Zum Video ↑</a>
+</div>
+</div>
+</footer>
+<!-- ===== Modals ===== -->
+<dialog id="m-247">
+<div class="modal">
+<button class="close" data-close="">Schließen</button>
+<h3>24/7 Erstkontakt</h3>
+<p>Wir sind jederzeit erreichbar – telefonisch und über WhatsApp. So bekommen Sie sofort eine klare Ersteinschätzung, Checkliste für die nächsten Schritte und auf Wunsch direkt einen Termin.</p>
+</div>
+</dialog>
+<dialog id="m-onsite">
+<div class="modal">
+<button class="close" data-close="">Schließen</button>
+<h3>Vor‑Ort‑Service</h3>
+<p>Nach einem Schaden und kurzem Telefonat kommen wir direkt zu Ihnen – in ganz Berlin und Brandenburg. Wir dokumentieren alle Schäden sorgfältig, besprechen alles vor Ort und nehmen Ihnen die Kommunikation mit der Versicherung ab.</p>
+</div>
+</dialog>
+<dialog id="m-tuv">
+<div class="modal">
+<button class="close" data-close="">Schließen</button>
+<h3>TÜV‑zertifiziert – warum das zählt</h3>
+<p>Die Zertifizierung steht für geprüfte Methoden, aktuelle Technik und strukturierte Abläufe. So stellen wir sicher, dass kein Detail übersehen wird, die Dokumentation lückenlos ist und die Regulierung mit Versicherern souverän und auf Augenhöhe erfolgt – für die bestmöglichen Ergebnisse.</p>
+</div>
+</dialog>
+<!-- ===== Scripts (embedded) ===== -->
+<script>
+    // Jahr
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // Modals
+    const openers = document.querySelectorAll('.service[data-modal]');
+    const closers = () => document.querySelectorAll('[data-close]');
+    openers.forEach(o => o.addEventListener('click', () => {
+      const id = o.getAttribute('data-modal');
+      const d = document.getElementById(id);
+      if (d && typeof d.showModal === 'function') d.showModal();
+    }));
+    document.addEventListener('click', (e)=>{
+      if(e.target.matches('[data-close]')){
+        const dlg = e.target.closest('dialog');
+        dlg?.close();
+      }
+    });
+    // Klick außerhalb schließt Dialog
+    document.querySelectorAll('dialog').forEach(dlg => {
+      dlg.addEventListener('click', (e)=>{ if(e.target === dlg) dlg.close(); });
+    });
+
+    // Kontakt: _next URL auf aktuelle Seite setzen (schöne Danke-Weiterleitung)
+    const form = document.getElementById('contactForm');
+    if (form) {
+      const next = form.querySelector('input[name="_next"]');
+      if (next) next.value = window.location.href + '#kontakt';
+    }
+
+    // Video: Wenn Datei nicht existiert, Hinweis anzeigen
+    const v = document.getElementById('heroVideo');
+    if (v) {
+      v.addEventListener('error', () => {
+        const hint = document.createElement('div');
+        hint.className = 'mini';
+        hint.style.marginTop = '8px';
+        hint.style.color = '#fca5a5';
+        hint.textContent = 'Video konnte nicht geladen werden. Bitte Dateinamen im <source>-Tag anpassen (z. B. b814a389-4d18-4c19-9062-25fa6e5bfc69.mp4).';
+        v.parentElement.appendChild(hint);
+      }, true);
+    }
+  </script>
+</body>
+</html>
