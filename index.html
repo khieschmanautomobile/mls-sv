@@ -156,7 +156,7 @@
 </div>
 <nav class="nav-links">
 <a href="#leistungen">Leistungen</a>
-<a href="#video">Video</a>
+<a href="#ueberuns">Über uns</a>
 <a href="#kontakt">Kontakt</a>
 <a class="cta" href="tel:+4917681333544">24/7 Anrufen</a>
 </nav>
@@ -227,6 +227,26 @@
 </div>
 </div>
 </section>
+
+<!-- ===== Über uns ===== -->
+<section class="section" id="ueberuns">
+  <div class="container">
+    <h2 style="margin:0 0 14px">Über uns</h2>
+    <div class="grid-3">
+      <div class="card">
+        <img src="WhatsApp Bild 2025-09-21 um 17.17.35_ce97a97e.jpg" alt="Begutachtung am Fahrzeug"/>
+      </div>
+      <div class="card">
+        <p>Mit über <strong>5 Jahren Erfahrung</strong> in der Branche als Sachverständiger für Service im Schienenverkehr nutzen wir modernste Technik und <strong>KI</strong>, um Ihren Schaden so effektiv zu dokumentieren, dass das <strong>Maximum bei der Versicherung</strong> durchgesetzt werden kann.</p>
+        <p>Am Ende zählt <strong>Ihr Recht</strong> – damit Sie sich später nicht über versteckte Kosten ärgern müssen. Wir scannen mit modernster Technik jede Schraube, jeden Schaden und lassen dies deutschlandweit von den <strong>besten Anwälten</strong> im Bereich <strong>KFZ‑Unfall/Verkehr</strong> geltend machen.</p>
+      </div>
+      <div class="card">
+        <img src="WhatsApp Bild 2025-09-21 um 17.19.10_572203e8.jpg" alt="Dokumentation des Schadens"/>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===== Kontakt ===== -->
 <section class="section" id="kontakt">
 <div class="container">
@@ -279,7 +299,7 @@
 <div class="mini"><a class="mini" href="impressum.html">Impressum</a> • Datenschutz auf Anfrage</div>
 </div>
 <div style="justify-self:end">
-<a class="mini" href="#video">Zum Video ↑</a>
+<a class="mini" href="#ueberuns">Zu Über uns ↑</a>
 </div>
 </div>
 </footer>
@@ -287,21 +307,21 @@
 <dialog id="m-247">
 <div class="modal">
 <button class="close" data-close="">Schließen</button>
-<h3>24/7 Erstkontakt</h3>
+<h3 style="color:#ff0000">24/7 Erstkontakt</h3>
 <p>Wir sind jederzeit erreichbar – telefonisch und über WhatsApp. So bekommen Sie sofort eine klare Ersteinschätzung, Checkliste für die nächsten Schritte und auf Wunsch direkt einen Termin.</p>
 </div>
 </dialog>
 <dialog id="m-onsite">
 <div class="modal">
 <button class="close" data-close="">Schließen</button>
-<h3>Vor‑Ort‑Service</h3>
+<h3 style="color:#ff0000">Vor‑Ort‑Service</h3>
 <p>Nach einem Schaden und kurzem Telefonat kommen wir direkt zu Ihnen – in ganz Berlin und Brandenburg. Wir dokumentieren alle Schäden sorgfältig, besprechen alles vor Ort und nehmen Ihnen die Kommunikation mit der Versicherung ab.</p>
 </div>
 </dialog>
 <dialog id="m-tuv">
 <div class="modal">
 <button class="close" data-close="">Schließen</button>
-<h3>TÜV‑zertifiziert – warum das zählt</h3>
+<h3 style="color:#ff0000">TÜV‑zertifiziert – warum das zählt</h3>
 <p>Die Zertifizierung steht für geprüfte Methoden, aktuelle Technik und strukturierte Abläufe. So stellen wir sicher, dass kein Detail übersehen wird, die Dokumentation lückenlos ist und die Regulierung mit Versicherern souverän und auf Augenhöhe erfolgt – für die bestmöglichen Ergebnisse.</p>
 </div>
 </dialog>
@@ -350,32 +370,5 @@
     }
   </script>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    var samePage = window.location.pathname + window.location.search;
-    // Intercept header nav anchor clicks
-    document.querySelectorAll('nav.nav-links a[href^="#"]').forEach(function(a){
-      a.addEventListener('click', function(e){
-        e.preventDefault();
-        // Force full reload to the same page (no hash) so it always starts at top
-        window.location.href = samePage;
-      });
-    });
-    // If the page was opened with a #hash, remove it & jump to top
-    if (window.location.hash) {
-      try {
-        history.replaceState(null, "", samePage);
-      } catch(e) {
-        window.location.href = samePage; // fallback
-      }
-      window.scrollTo(0, 0);
-    } else {
-      // Ensure we are at the very top on initial load
-      window.scrollTo(0, 0);
-    }
-  });
-  // Also scroll to top on unload just in case
-  window.onbeforeunload = function(){ window.scrollTo(0, 0); };
-</script>
 </body>
 </html>
