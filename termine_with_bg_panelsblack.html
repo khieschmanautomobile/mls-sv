@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Termin online vereinbaren – MLS Sachverständigenbüro</title>
+<meta name="description" content="Buchen Sie online Ihren Termin beim MLS Sachverständigenbüro.">
+<style>
+  :root{
+    --bg:#0b0d12; --text:#e6e9ef; --muted:#a7b0c0; --card:#141823;
+    --line:rgba(255,255,255,.1); --brand:#22c55e; --brandText:#0a3418;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial}
+  a{color:inherit;text-decoration:none}
+  .container{max-width:1100px;margin:0 auto;padding:0 20px}
+  header{position:sticky;top:0;z-index:50;background:rgba(16,19,26,.7);backdrop-filter: blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800}
+  .nav-links{display:flex;gap:14px;align-items:center}
+  .cta{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;background:linear-gradient(135deg,#3b82f6,#10b981);font-weight:700}
+  .cta.secondary{background:transparent;border:1px solid rgba(255,255,255,.2)}
+
+  .wrap{display:grid;gap:18px;padding:22px 0}
+  .panel{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .panel-body{padding:16px}
+  h1{font-size:clamp(24px,4.5vw,38px);margin:8px 0 6px}
+  .muted{color:var(--muted)}
+
+  .booking-title{padding:16px 18px;border-bottom:1px solid var(--line)}
+  .selected-banner{background:#34d399;color:#052e1a;padding:12px 16px;font-weight:700}
+
+  .weekbar{display:flex;align-items:center;gap:10px;padding:12px 0}
+  .week-nav{display:flex;align-items:center;gap:8px}
+  .icon-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--text);display:grid;place-items:center;cursor:pointer;font-size:18px;line-height:1}
+  .days{display:flex;gap:12px;align-items:center}
+  .day{
+    width:44px;height:44px;border-radius:50%;
+    border:1px solid var(--line);display:grid;place-items:center;
+    cursor:pointer;color:var(--text);opacity:.95;
+    font-size:16px; line-height:1; font-weight:700;
+    background:transparent;
+  }
+  .day.disabled{opacity:.35;cursor:not-allowed}
+  .day.active{background:#0b0b0b;border-color:#0b0b0b;box-shadow:inset 0 0 0 2px #fff; color:#fff}
+  .month-label{margin-left:6px;font-weight:600;color:var(--muted)}
+
+  .slots{min-height:180px;display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px}
+  .slot{padding:10px 12px;border:1px solid var(--line);border-radius:10px;text-align:center;cursor:pointer;background:rgba(255,255,255,.03); font-weight:600}
+  .slot:hover{outline:2px solid #3b82f6;outline-offset:2px}
+  .slot.selected{background:#34d399;color:#052e1a;font-weight:800}
+
+  .no-availability{display:grid;place-items:center;color:var(--muted);padding:40px 0}
+  .tz{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:14px;margin-top:8px}
+
+  form{display:grid;gap:10px}
+  label{font-size:14px;color:var(--muted)}
+  input,textarea{width:100%;padding:10px 12px;background:#0f1420;border:1px solid var(--line);border-radius:10px;color:var(--text)}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media (max-width:760px){ .row{grid-template-columns:1fr} }
+  button[type=submit]{padding:12px 14px;border-radius:12px;border:0;background:linear-gradient(135deg,#3b82f6,#10b981);color:white;font-weight:800;cursor:pointer}
+  .summary{padding:10px 12px;border:1px dashed var(--line);border-radius:10px;background:rgba(255,255,255,.02)}
+
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:url('clark-van-der-beken-CSkriQWeTVs-unsplash.jpg') center/cover no-repeat;
+    z-index:-2;
+    filter:brightness(0.35) saturate(0.9);
+  }
+  body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:linear-gradient(to bottom, rgba(11,13,18,.75), rgba(11,13,18,.95));
+    z-index:-1;
+  }
+
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:url('clark-van-der-beken-CSkriQWeTVs-unsplash.jpg') center/cover no-repeat;
+    z-index:-2;
+    filter:brightness(0.65) contrast(1.1);
+  }
+  body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.35);
+    z-index:-1;
+  }
+  .panel{
+    background:rgba(11,13,18,0.65);
+    backdrop-filter: blur(4px);
+  }
+  header{
+    background:rgba(11,13,18,0.65);
+    backdrop-filter: blur(4px);
+  }
+
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:url('clark-van-der-beken-CSkriQWeTVs-unsplash.jpg') center/cover no-repeat;
+    z-index:-1;
+    filter:brightness(0.85) contrast(1.05);
+  }
+  body::after{ content:none; }
+  .panel{
+    background:rgba(0,0,0,0.35);
+    backdrop-filter: blur(2px);
+  }
+  header{
+    background:rgba(0,0,0,0.35);
+    backdrop-filter: blur(2px);
+  }
+
+  body{
+    background:url('clark-van-der-beken-CSkriQWeTVs-unsplash.jpg') center/cover no-repeat fixed;
+  }
+  body::before, body::after{ content:none !important; }
+  header{
+    background:transparent !important;
+    backdrop-filter:none !important;
+  }
+  .panel{
+    background:#000000 !important;
+    border-radius:14px;
+    padding:16px;
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <div class="brand">
+      <a href="index (2).html"><img src="jpeg.jpg" alt="MLS Logo" style="height:50px"></a>
+      <div>MLS Sachverständigenbüro</div>
+    </div>
+    <nav class="nav-links">
+      <a class="cta secondary" href="index (2).html">Zur Startseite</a>
+      <a class="cta" href="tel:+4917681333544">24/7 Anrufen</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container wrap">
+  <div class="booking-title">
+    <div style="color:#86efac;font-weight:800;letter-spacing:.04em;">TERMIN VEREINBAREN</div>
+    <h1>We look forward to meeting with you</h1>
+    <div class="muted">Select a date and time <span style="color:#f43f5e">*</span></div>
+  </div>
+
+  <div class="panel">
+    <div class="selected-banner" id="selectedDayBanner">—</div>
+    <div class="panel-body" id="calendarPanel">
+      <div class="weekbar">
+        <div class="week-nav">
+          <button class="icon-btn" id="prevWeek" aria-label="Zurück">&#10094;</button>
+        </div>
+        <div class="days" id="daysRow"></div>
+        <div class="week-nav">
+          <button class="icon-btn" id="nextWeek" aria-label="Weiter">&#10095;</button>
+        </div>
+        <div class="month-label" id="monthLabel"></div>
+      </div>
+
+      <div class="no-availability" id="noAvail" style="display:none">
+        <div>
+          <div style="font-size:42px;opacity:.3">📅</div>
+          <div>No availability, try another day</div>
+        </div>
+      </div>
+      <div class="slots" id="slots"></div>
+
+      <div class="tz">
+        <span>🕒</span><span id="tzText">(GMT) Europe/Berlin</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-body">
+      <h3 style="margin:0 0 8px">Ihre Daten</h3>
+      <form id="bookingForm">
+        <div class="row">
+          <div>
+            <label for="name">Name</label>
+            <input id="name" name="name" placeholder="Max Mustermann" required>
+          </div>
+          <div>
+            <label for="phone">Telefon</label>
+            <input id="phone" name="phone" placeholder="+49 ...">
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label for="email">E-Mail</label>
+            <input id="email" type="email" name="email" placeholder="name@example.com" required>
+          </div>
+          <div>
+            <label for="reason">Anliegen</label>
+            <input id="reason" name="reason" placeholder="z. B. Gutachten, Beratung">
+          </div>
+        </div>
+        <label for="notes">Notiz</label>
+        <textarea id="notes" name="notes" rows="3" placeholder="Optional"></textarea>
+
+        <div class="summary" id="summary">Bitte wählen Sie Datum und Uhrzeit.</div>
+        <button type="submit">Termin anfragen</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+// ---------- CONFIG ----------
+const config = {
+  tz: Intl.DateTimeFormat().resolvedOptions().timeZone || "Europe/Berlin",
+  businessHours: {
+    1: ["09:00","17:00"],
+    2: ["09:00","17:00"],
+    3: ["09:00","17:00"],
+    4: ["09:00","17:00"],
+    5: ["09:00","15:00"],
+    6: null, 0: null
+  },
+  slotMinutes: 30,
+  blocked: {},
+  closedDays: [],
+  leadTimeMinutes: 120
+};
+
+// ---------- HELPERS ----------
+const pad = n => (n<10? "0"+n : ""+n);
+const toLocalISO = (d) => `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+const parseHM = hm => { const [h,m] = hm.split(":").map(Number); return {h,m}; };
+const addMinutes = (date, mins) => new Date(date.getTime()+mins*60000);
+const formatHuman = d => d.toLocaleString(undefined, {weekday:"long", year:"numeric", month:"long", day:"numeric"});
+const formatTime = d => d.toLocaleTimeString([], {hour:"2-digit", minute:"2-digit"});
+const sameDay = (a,b) => a.getFullYear()==b.getFullYear() && a.getMonth()==b.getMonth() && a.getDate()==b.getDate();
+
+// ---------- STATE ----------
+let current = new Date(); current.setHours(0,0,0,0);
+let monday = new Date(current); monday.setDate(current.getDate() - ((current.getDay()+6)%7));
+let selectedDay = new Date(current); let selectedSlot = null;
+
+// ---------- UI ----------
+const daysRow = document.getElementById("daysRow");
+const slotsEl = document.getElementById("slots");
+const banner = document.getElementById("selectedDayBanner");
+const monthLabel = document.getElementById("monthLabel");
+const tzText = document.getElementById("tzText");
+const noAvail = document.getElementById("noAvail");
+const summary = document.getElementById("summary");
+
+tzText.textContent = `(GMT${formatOffset(new Date())}) ${config.tz}`;
+renderWeek(); selectDay(selectedDay);
+
+function renderWeek(){
+  daysRow.innerHTML = "";
+  const week = [];
+  for(let i=0;i<7;i++){ const d = new Date(monday); d.setDate(monday.getDate()+i); week.push(d); }
+  monthLabel.textContent = rangeMonthLabel(week[0], week[6]);
+  week.forEach(d=>{
+    const btn = document.createElement("button");
+    btn.className = "day";
+    btn.style.fontSize = "16px"; // explicit fix for global resets
+    btn.style.lineHeight = "1";
+    const isPast = d < new Date(new Date().setHours(0,0,0,0));
+    const isClosed = config.businessHours[d.getDay()] === null || config.closedDays.includes(toLocalISO(d));
+    btn.textContent = d.getDate().toString(); // explicit number
+    if(isPast || isClosed) btn.classList.add("disabled");
+    if(sameDay(d, selectedDay)) btn.classList.add("active");
+    btn.title = d.toLocaleDateString(undefined,{weekday:"short"});
+    btn.onclick = ()=>{ if(!(isPast||isClosed)){ selectedDay = new Date(d); renderWeek(); selectDay(selectedDay);} };
+    daysRow.appendChild(btn);
+  });
+}
+
+function rangeMonthLabel(a,b){
+  const sameMonth = a.getMonth()===b.getMonth() && a.getFullYear()===b.getFullYear();
+  const fmt = (d)=> d.toLocaleString(undefined, {month:"long", year:"numeric"});
+  return sameMonth ? fmt(a) : `${fmt(a)} – ${fmt(b)}`;
+}
+
+function selectDay(d){
+  banner.textContent = d.toLocaleDateString(undefined,{weekday:"long", month:"long", day:"2-digit", year:"numeric"});
+  renderSlots(d);
+  updateSummary();
+}
+
+function renderSlots(day){
+  slotsEl.innerHTML = ""; selectedSlot = null;
+  const bh = config.businessHours[day.getDay()];
+  if(!bh){ noAvail.style.display="grid"; return; }
+  noAvail.style.display="none";
+  const [start,end] = bh;
+  const {h:sh, m:sm} = parseHM(start);
+  const {h:eh, m:em} = parseHM(end);
+  const startDate = new Date(day); startDate.setHours(sh,sm,0,0);
+  const endDate = new Date(day); endDate.setHours(eh,em,0,0);
+
+  const nowPlusLead = addMinutes(new Date(), config.leadTimeMinutes);
+  for(let t=new Date(startDate); t<endDate; t=addMinutes(t, config.slotMinutes)){
+    const isoDay = toLocalISO(day);
+    const blockList = config.blocked[isoDay] || [];
+    const timeStr = pad(t.getHours())+":"+pad(t.getMinutes());
+    const disabled = t<nowPlusLead || blockList.includes(timeStr);
+    const div = document.createElement("div");
+    div.className = "slot"; div.textContent = formatTime(t);
+    if(disabled) { div.style.opacity = .35; div.style.pointerEvents="none"; }
+    div.onclick = ()=>{ document.querySelectorAll('.slot.selected').forEach(s=>s.classList.remove('selected')); div.classList.add('selected'); selectedSlot=new Date(t); updateSummary(); };
+    slotsEl.appendChild(div);
+  }
+  if(!slotsEl.children.length){ noAvail.style.display="grid"; }
+}
+
+function updateSummary(){
+  if(!selectedSlot){
+    summary.textContent = `Bitte Zeit auswählen für ${formatHuman(selectedDay)}.`;
+  }else{
+    summary.textContent = `Gewählt: ${formatHuman(selectedDay)} – ${formatTime(selectedSlot)} (${config.tz})`;
+  }
+}
+
+document.getElementById("prevWeek").onclick = ()=>{ monday.setDate(monday.getDate()-7); renderWeek(); selectDay(new Date(monday)); };
+document.getElementById("nextWeek").onclick = ()=>{ monday.setDate(monday.getDate()+7); renderWeek(); selectDay(new Date(monday)); };
+
+document.getElementById("bookingForm").addEventListener("submit", (e)=>{
+  e.preventDefault();
+  if(!selectedSlot){ alert("Bitte zuerst eine Uhrzeit wählen."); return; }
+  const name = document.getElementById("name").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const reason = document.getElementById("reason").value.trim();
+  const notes = document.getElementById("notes").value.trim();
+
+  const subject = encodeURIComponent("Termin-Anfrage " + name);
+  const body = encodeURIComponent(
+`Name: ${name}
+Telefon: ${phone}
+E-Mail: ${email}
+Anliegen: ${reason}
+Datum: ${formatHuman(selectedDay)}
+Uhrzeit: ${formatTime(selectedSlot)} (${config.tz})
+Notiz: ${notes}`);
+  window.location.href = `mailto:info@mls-gutachten.de?subject=${subject}&body=${body}`;
+});
+
+function formatOffset(d){
+  const off = -d.getTimezoneOffset();
+  const sign = off>=0? "+":"-";
+  const abs = Math.abs(off);
+  const hh = String(Math.floor(abs/60)).padStart(2,"0");
+  const mm = String(abs%60).padStart(2,"0");
+  return `${sign}${hh}:${mm}`;
+}
+</script>
+</body>
+</html>
