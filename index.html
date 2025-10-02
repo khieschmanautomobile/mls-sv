@@ -200,20 +200,16 @@
 
 .video-wrapper {
   display: flex;
-  justify-content: center;
-  gap: 22px;
-  margin-top: 24px;
-  max-width: min(1100px, 96%);
-  margin-left: auto;
-  margin-right: auto;
+  justify-content: space-between; /* sorgt für gleichen Abstand links/rechts */
+  gap: 32px; /* Abstand zwischen den Videos */
+  margin: 32px auto; /* Abstand nach oben/unten */
+  max-width: 1200px; /* gleiche Breite wie Textcontainer */
+  padding: 0 20px;   /* Innenabstand links/rechts */
 }
 
-
-
-
 .small-video {
-  flex: 1 1 44%;
-  max-width: 520px;
+  flex: 1 1 50%;     /* beide Videos gleich breit */
+  max-width: 560px;  /* Begrenzung der Videobreite */
   aspect-ratio: 16 / 9;
 }
 
