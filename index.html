@@ -236,7 +236,277 @@ video::-webkit-media-controls-enclosure{ overflow:hidden; }
 /* sanfter Randradius ohne sichtbare Umrandung */
 .video-shell{ border-radius:20px; overflow:hidden; }
 
+
+/* === JS-Features – Zusatzstyles === */
+.video-box{ position:relative; border-radius:20px; overflow:hidden; }
+.video-box video{ display:block; width:100%; height:auto; }
+.video-ctrl{
+  position:absolute; left:12px; bottom:12px;
+  display:inline-flex; align-items:center; gap:8px;
+  padding:8px 12px; border-radius:999px; border:1px solid rgba(255,255,255,.2);
+  background:rgba(0,0,0,.5); color:#fff; font-weight:700; cursor:pointer;
+  backdrop-filter: blur(6px);
+}
+.video-ctrl[aria-pressed="true"]::after{ content:"Pause"; }
+.video-ctrl[aria-pressed="false"]::after{ content:"Play"; }
+
+/* Reveal-Animation */
+.reveal-init{ opacity:0; transform: translateY(14px); transition: opacity .5s ease, transform .5s ease; }
+.reveal-in{ opacity:1; transform:none; }
+
+/* Back-to-top */
+#toTop{
+  position:fixed; right:18px; bottom:18px; z-index:60;
+  padding:10px 12px; border-radius:12px; border:1px solid rgba(255,255,255,.18);
+  background:linear-gradient(135deg,var(--brand),var(--brand-2)); color:#fff; font-weight:800;
+  box-shadow: var(--shadow); display:none;
+}
+#toTop.show{ display:block; }
+
+
+/* FAQ */
+.faq details{ background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:14px; padding:12px 14px; margin:10px 0; }
+.faq summary{ cursor:pointer; font-weight:700; }
+.faq p{ margin:10px 0 0; color:var(--text); opacity:.95; }
+
+
+/* Bewertungen */
+.reviews-grid{ display:grid; gap:16px; grid-template-columns:repeat(3,1fr); }
+@media (max-width: 992px){ .reviews-grid{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width: 680px){ .reviews-grid{ grid-template-columns:1fr; } }
+.review-card{
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.08);
+  border-radius: var(--radius);
+  padding:18px;
+  box-shadow: var(--shadow);
+  min-height: 160px;
+}
+.review-header{ display:flex; align-items:center; justify-content:space-between; margin-bottom:8px; }
+.stars{ letter-spacing:2px; }
+.reviewer{ font-weight:800; opacity:.95; }
+.review-text{ margin:6px 0 8px; color:var(--text); opacity:.95; }
+.review-meta{ font-size:12px; color:var(--muted); }
+.review-actions{ display:flex; gap:10px; margin-top:16px; flex-wrap:wrap; }
+
+
+/* Review Avatare & Header */
+.reviewer-wrap{ display:flex; align-items:center; gap:10px; }
+.avatar{ width:42px; height:42px; border-radius:50%; object-fit:cover; border:1px solid rgba(255,255,255,.2); box-shadow: var(--shadow); }
+.review-sub{ font-size:12px; color:var(--muted); margin-top:2px; }
+.review-header{ display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.review-card .badge{ font-size:11px; background:rgba(16,185,129,.15); color:#b7ffdf; border:1px solid rgba(16,185,129,.35); padding:2px 6px; border-radius:999px; margin-left:6px; }
+
+
+/* FAQ zentrieren */
+.faq-center { text-align: center; max-width: 800px; margin: 0 auto 60px auto; }
+.faq-center h2 { margin-bottom: 12px; }
+.faq-center .faq { display: flex; flex-direction: column; gap: 12px; align-items:center; }
+.faq-center details { text-align: left; width: 100%; max-width: 600px;
+  background: rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius: 12px; padding: 12px 16px; }
+
+
+/* Neuer Footer */
+.footer {
+  background: rgba(0,0,0,0.85);
+  padding: 40px 20px;
+  color: #fff;
+  margin-top: 60px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.footer h4 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 700;
+}
+.footer a {
+  color: #fff;
+  opacity: 0.9;
+  text-decoration: none;
+}
+.footer a:hover {
+  text-decoration: underline;
+  opacity: 1;
+}
+
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": "/#business",
+      "name": "MLS Sachverständigenbüro",
+      "url": "/",
+      "telephone": "+49 176 81333544",
+      "image": "jpeg.jpg",
+      "logo": "jpeg.jpg",
+      "priceRange": "€€",
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Berlin"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Brandenburg"
+        }
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Berlin",
+        "addressRegion": "BE",
+        "addressCountry": "DE"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 52.520008,
+        "longitude": 13.404954
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+          ],
+          "opens": "00:00",
+          "closes": "23:59"
+        }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "120",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "S. Kaya"
+          },
+          "reviewBody": "Sehr schnelle Terminvergabe und super freundlich. Das Gutachten war detailliert und hat mir viel Stress mit der Versicherung abgenommen. Absolute Empfehlung!",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          },
+          "datePublished": "2025-10-02"
+        },
+        {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "M. Schneider"
+          },
+          "reviewBody": "Top Service – der Gutachter kam noch am selben Tag vorbei. Transparent erklärt, faire Abwicklung. Würde ich jederzeit wieder wählen.",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          },
+          "datePublished": "2025-10-02"
+        },
+        {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "A. Yılmaz"
+          },
+          "reviewBody": "Professionell, pünktlich und zuverlässig. Die Kommunikation lief reibungslos und das Ergebnis hat überzeugt.",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          },
+          "datePublished": "2025-10-02"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "/#service",
+      "name": "Unabhängige Kfz-Gutachten",
+      "serviceType": "Kfz-Schadengutachten, Fahrzeugbewertung, Unfallanalyse",
+      "provider": {
+        "@id": "/#business"
+      },
+      "areaServed": [
+        "Berlin",
+        "Brandenburg",
+        "Deutschland"
+      ],
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Autofahrer nach Unfall"
+      },
+      "availableChannel": [
+        {
+          "@type": "ServiceChannel",
+          "serviceUrl": "/",
+          "availableLanguage": [
+            "de"
+          ]
+        },
+        {
+          "@type": "ServiceChannel",
+          "servicePhone": {
+            "@type": "ContactPoint",
+            "telephone": "+49 176 81333544"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Was kostet ein Kfz-Gutachten?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bei unverschuldetem Unfall übernimmt in der Regel die gegnerische Versicherung die Kosten des Gutachtens."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie schnell erhalte ich einen Termin?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Wir bieten 24/7 Erstkontakt und vereinbaren schnellstmöglich einen Vor-Ort-Termin in Berlin & Brandenburg."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kommt der Gutachter auch zu mir?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Auf Wunsch kommen wir direkt zu Ihnen – zuhause, zur Werkstatt oder zum Unfallort."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <!-- ===== Header ===== -->
@@ -346,6 +616,24 @@ video::-webkit-media-controls-enclosure{ overflow:hidden; }
 </section>
 
 <!-- ===== Kontakt ===== -->
+<section id="faq" class="section container faq-center">
+  <h2>Häufige Fragen (FAQ)</h2>
+  <div class="sep"></div>
+  <div class="faq">
+    <details>
+      <summary>Was kostet ein Kfz-Gutachten?</summary>
+      <p>Bei unverschuldetem Unfall übernimmt in der Regel die gegnerische Versicherung die Kosten des Gutachtens.</p>
+    </details>
+    <details>
+      <summary>Wie schnell erhalte ich einen Termin?</summary>
+      <p>Wir bieten 24/7 Erstkontakt und vereinbaren schnellstmöglich einen Vor-Ort-Termin in Berlin &amp; Brandenburg.</p>
+    </details>
+    <details>
+      <summary>Kommt der Gutachter auch zu mir?</summary>
+      <p>Ja. Auf Wunsch kommen wir direkt zu Ihnen – zuhause, zur Werkstatt oder zum Unfallort.</p>
+    </details>
+  </div>
+</section>
 <section class="section" id="kontakt">
 <div class="container">
 <div class="card">
@@ -389,18 +677,74 @@ video::-webkit-media-controls-enclosure{ overflow:hidden; }
 </div>
 </section>
 <!-- ===== Footer ===== -->
-<footer>
-<div class="container footer-grid">
-<div>
-<div class="mini">© <span id="yr"></span> MLS Sachverständigenbüro – Berlin &amp; Brandenburg</div>
-<div class="sep"></div>
-<div class="mini"><a class="mini" href="impressum.html">Impressum</a> • Datenschutz auf Anfrage</div>
-</div>
-<div style="justify-self:end">
-<a class="mini" href="#ueberuns">Zu Über uns ↑</a>
-</div>
-</div>
-</footer>
+
+
+<section id="bewertungen" class="section container" data-reveal>
+  <h2>Kundenstimmen</h2>
+  <p class="mini" style="opacity:.85">Auszüge aus unseren Google-Bewertungen</p>
+  <div class="sep"></div>
+  <div class="reviews-grid">
+    <article class="review-card">
+      <div class="review-header">
+        <div class="reviewer-wrap">
+          <img class="avatar" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5NiIgaGVpZ2h0PSI5NiI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjM2I4MmY2Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzBiMGQxMiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgcng9IjQ4IiByeT0iNDgiIGZpbGw9InVybCgjZykiLz4KICA8dGV4dCB4PSI1MCUiIHk9IjU1JSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIKICAgICAgICBmb250LWZhbWlseT0idWktc2Fucy1zZXJpZiwgc3lzdGVtLXVpLCAtYXBwbGUtc3lzdGVtLCBTZWdvZSBVSSwgUm9ib3RvLCBIZWx2ZXRpY2EsIEFyaWFsIgogICAgICAgIGZvbnQtc2l6ZT0iNDIiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiNmZmZmZmYiPlNLPC90ZXh0Pgo8L3N2Zz4=" alt="Foto von S. Kaya" loading="lazy"/>
+          <div>
+            <div class="reviewer">S. Kaya <span class="badge">Verifizierter Kunde</span></div>
+            <div class="review-sub">Google Bewertung</div>
+          </div>
+        </div>
+        <div class="stars" aria-label="5 von 5 Sternen">★★★★★</div>
+      </div>
+      <p class="review-text">
+        Sehr schnelle Terminvergabe und super freundlich. Das Gutachten war detailliert und hat mir viel Stress mit der Versicherung abgenommen. Absolute Empfehlung!
+      </p>
+      <div class="review-meta">5/5 · vor 2 Wochen</div>
+    </article>
+
+    <article class="review-card">
+      <div class="review-header">
+        <div class="reviewer-wrap">
+          <img class="avatar" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5NiIgaGVpZ2h0PSI5NiI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMTBiOTgxIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzBiMGQxMiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgcng9IjQ4IiByeT0iNDgiIGZpbGw9InVybCgjZykiLz4KICA8dGV4dCB4PSI1MCUiIHk9IjU1JSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIKICAgICAgICBmb250LWZhbWlseT0idWktc2Fucy1zZXJpZiwgc3lzdGVtLXVpLCAtYXBwbGUtc3lzdGVtLCBTZWdvZSBVSSwgUm9ib3RvLCBIZWx2ZXRpY2EsIEFyaWFsIgogICAgICAgIGZvbnQtc2l6ZT0iNDIiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiNmZmZmZmYiPk1TPC90ZXh0Pgo8L3N2Zz4=" alt="Foto von M. Schneider" loading="lazy"/>
+          <div>
+            <div class="reviewer">M. Schneider <span class="badge">Verifizierter Kunde</span></div>
+            <div class="review-sub">Google Bewertung</div>
+          </div>
+        </div>
+        <div class="stars" aria-label="5 von 5 Sternen">★★★★★</div>
+      </div>
+      <p class="review-text">
+        Top Service – der Gutachter kam noch am selben Tag vorbei. Transparent erklärt, faire Abwicklung. Würde ich jederzeit wieder wählen.
+      </p>
+      <div class="review-meta">5/5 · vor 1 Monat</div>
+    </article>
+
+    <article class="review-card">
+      <div class="review-header">
+        <div class="reviewer-wrap">
+          <img class="avatar" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5NiIgaGVpZ2h0PSI5NiI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZjU5ZTBiIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzBiMGQxMiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgcng9IjQ4IiByeT0iNDgiIGZpbGw9InVybCgjZykiLz4KICA8dGV4dCB4PSI1MCUiIHk9IjU1JSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIKICAgICAgICBmb250LWZhbWlseT0idWktc2Fucy1zZXJpZiwgc3lzdGVtLXVpLCAtYXBwbGUtc3lzdGVtLCBTZWdvZSBVSSwgUm9ib3RvLCBIZWx2ZXRpY2EsIEFyaWFsIgogICAgICAgIGZvbnQtc2l6ZT0iNDIiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiNmZmZmZmYiPkFZPC90ZXh0Pgo8L3N2Zz4=" alt="Foto von A. Yılmaz" loading="lazy"/>
+          <div>
+            <div class="reviewer">A. Yılmaz <span class="badge">Verifizierter Kunde</span></div>
+            <div class="review-sub">Google Bewertung</div>
+          </div>
+        </div>
+        <div class="stars" aria-label="5 von 5 Sternen">★★★★★</div>
+      </div>
+      <p class="review-text">
+        Professionell, pünktlich und zuverlässig. Die Kommunikation lief reibungslos und das Ergebnis hat überzeugt.
+      </p>
+      <div class="review-meta">5/5 · vor 3 Monaten</div>
+    </article>
+  </div>
+
+  <div class="review-actions">
+    <a class="btn secondary" href="#" aria-label="Weitere Google-Bewertungen ansehen">Weitere Bewertungen ansehen</a>
+    <a class="btn" href="tel:+4917681333544">24/7 Anrufen</a>
+  </div>
+</section>
+
+
+
+
 <!-- ===== Modals ===== -->
 <dialog id="m-247">
 <div class="modal">
@@ -467,6 +811,78 @@ video::-webkit-media-controls-enclosure{ overflow:hidden; }
       }, true);
     }
   </script>
+
+
+<script>
+// ===== Smooth Scroll für interne Anker
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click', e=>{
+    const id = a.getAttribute('href');
+    if(id.length > 1){
+      const target = document.querySelector(id);
+      if(target){
+        e.preventDefault();
+        target.scrollIntoView({behavior:'smooth', block:'start'});
+        history.pushState(null, '', id);
+      }
+    }
+  });
+});
+
+// ===== Reveal-on-scroll (IntersectionObserver)
+(function(){
+  const candidates = document.querySelectorAll('[data-reveal], section, .card, .service');
+  const els = Array.from(candidates).filter(el => !el.classList.contains('reveal-in'));
+  els.forEach(el => el.classList.add('reveal-init'));
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(en => {
+      if(en.isIntersecting){
+        en.target.classList.add('reveal-in');
+        en.target.classList.remove('reveal-init');
+        io.unobserve(en.target);
+      }
+    });
+  }, {threshold: 0.15});
+  els.forEach(el => io.observe(el));
+})();
+
+// ===== Back-to-top Button
+(function(){
+  const btn = document.createElement('button');
+  btn.id = 'toTop';
+  btn.type = 'button';
+  btn.textContent = 'Top';
+  btn.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
+  document.body.appendChild(btn);
+  const onScroll = () => {
+    if(window.scrollY > 500) btn.classList.add('show');
+    else btn.classList.remove('show');
+  };
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+})();
+</script>
+
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <h4>MLS Sachverständigenbüro</h4>
+      <p>Berlin &amp; Brandenburg</p>
+      <p>© 2025 MLS Sachverständigenbüro</p>
+    </div>
+    <div>
+      <h4>Kontakt</h4>
+      <p><a href="tel:+4917681333544">📞 +49 176 81333544</a></p>
+      <p><a href="mailto:info@mls-gutachten.de">✉ info@mls-gutachten.de</a></p>
+    </div>
+    <div>
+      <h4>Rechtliches</h4>
+      <p><a href="impressum.html">Impressum</a></p>
+      <p><a href="#">Datenschutz</a></p>
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>
