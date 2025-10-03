@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="de">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>Termin online vereinbaren – MLS Sachverständigenbüro</title>
-<meta name="description" content="Buchen Sie online Ihren Termin beim MLS Sachverständigenbüro.">
+<meta content="Buchen Sie online Ihren Termin beim MLS Sachverständigenbüro." name="description"/>
 <style>
   :root{
     --bg:#0b0d12; --text:#e6e9ef; --muted:#a7b0c0; --card:#141823;
@@ -134,89 +135,82 @@
   }
 </style>
 </head>
-<body>
+<body><script>window.API_BASE_URL = "https://DEIN-PROJEKT.vercel.app"; // <-- hier deine Vercel-URL einsetzen</script>
 <header>
-  <div class="container nav">
-    <div class="brand">
-      <a href="index (2).html"><img src="jpeg.jpg" alt="MLS Logo" style="height:50px"></a>
-      <div>MLS Sachverständigenbüro</div>
-    </div>
-    <nav class="nav-links">
-      <a class="cta secondary" href="index (2).html">Zur Startseite</a>
-      <a class="cta" href="tel:+4917681333544">24/7 Anrufen</a>
-    </nav>
-  </div>
-</header>
-
-<div class="container wrap">
-  <div class="booking-title">
-    <div style="color:#86efac;font-weight:800;letter-spacing:.04em;">TERMIN VEREINBAREN</div>
-    <h1>We look forward to meeting with you</h1>
-    <div class="muted">Select a date and time <span style="color:#f43f5e">*</span></div>
-  </div>
-
-  <div class="panel">
-    <div class="selected-banner" id="selectedDayBanner">—</div>
-    <div class="panel-body" id="calendarPanel">
-      <div class="weekbar">
-        <div class="week-nav">
-          <button class="icon-btn" id="prevWeek" aria-label="Zurück">&#10094;</button>
-        </div>
-        <div class="days" id="daysRow"></div>
-        <div class="week-nav">
-          <button class="icon-btn" id="nextWeek" aria-label="Weiter">&#10095;</button>
-        </div>
-        <div class="month-label" id="monthLabel"></div>
-      </div>
-
-      <div class="no-availability" id="noAvail" style="display:none">
-        <div>
-          <div style="font-size:42px;opacity:.3">📅</div>
-          <div>No availability, try another day</div>
-        </div>
-      </div>
-      <div class="slots" id="slots"></div>
-
-      <div class="tz">
-        <span>🕒</span><span id="tzText">(GMT) Europe/Berlin</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="panel">
-    <div class="panel-body">
-      <h3 style="margin:0 0 8px">Ihre Daten</h3>
-      <form id="bookingForm">
-        <div class="row">
-          <div>
-            <label for="name">Name</label>
-            <input id="name" name="name" placeholder="Max Mustermann" required>
-          </div>
-          <div>
-            <label for="phone">Telefon</label>
-            <input id="phone" name="phone" placeholder="+49 ...">
-          </div>
-        </div>
-        <div class="row">
-          <div>
-            <label for="email">E-Mail</label>
-            <input id="email" type="email" name="email" placeholder="name@example.com" required>
-          </div>
-          <div>
-            <label for="reason">Anliegen</label>
-            <input id="reason" name="reason" placeholder="z. B. Gutachten, Beratung">
-          </div>
-        </div>
-        <label for="notes">Notiz</label>
-        <textarea id="notes" name="notes" rows="3" placeholder="Optional"></textarea>
-
-        <div class="summary" id="summary">Bitte wählen Sie Datum und Uhrzeit.</div>
-        <button type="submit">Termin anfragen</button>
-      </form>
-    </div>
-  </div>
+<div class="container nav">
+<div class="brand">
+<a href="index (2).html"><img alt="MLS Logo" src="jpeg.jpg" style="height:50px"/></a>
+<div>MLS Sachverständigenbüro</div>
 </div>
-
+<nav class="nav-links">
+<a class="cta secondary" href="index (2).html">Zur Startseite</a>
+<a class="cta" href="tel:+4917681333544">24/7 Anrufen</a>
+</nav>
+</div>
+</header>
+<div class="container wrap">
+<div class="booking-title">
+<div style="color:#86efac;font-weight:800;letter-spacing:.04em;">TERMIN VEREINBAREN</div>
+<h1>We look forward to meeting with you</h1>
+<div class="muted">Select a date and time <span style="color:#f43f5e">*</span></div>
+</div>
+<div class="panel">
+<div class="selected-banner" id="selectedDayBanner">—</div>
+<div class="panel-body" id="calendarPanel">
+<div class="weekbar">
+<div class="week-nav">
+<button aria-label="Zurück" class="icon-btn" id="prevWeek">❮</button>
+</div>
+<div class="days" id="daysRow"></div>
+<div class="week-nav">
+<button aria-label="Weiter" class="icon-btn" id="nextWeek">❯</button>
+</div>
+<div class="month-label" id="monthLabel"></div>
+</div>
+<div class="no-availability" id="noAvail" style="display:none">
+<div>
+<div style="font-size:42px;opacity:.3">📅</div>
+<div>No availability, try another day</div>
+</div>
+</div>
+<div class="slots" id="slots"></div>
+<div class="tz">
+<span>🕒</span><span id="tzText">(GMT) Europe/Berlin</span>
+</div>
+</div>
+</div>
+<div class="panel">
+<div class="panel-body">
+<h3 style="margin:0 0 8px">Ihre Daten</h3>
+<form id="bookingForm">
+<div class="row">
+<div>
+<label for="name">Name</label>
+<input id="name" name="name" placeholder="Max Mustermann" required=""/>
+</div>
+<div>
+<label for="phone">Telefon</label>
+<input id="phone" name="phone" placeholder="+49 ..."/>
+</div>
+</div>
+<div class="row">
+<div>
+<label for="email">E-Mail</label>
+<input id="email" name="email" placeholder="name@example.com" required="" type="email"/>
+</div>
+<div>
+<label for="reason">Anliegen</label>
+<input id="reason" name="reason" placeholder="z. B. Gutachten, Beratung"/>
+</div>
+</div>
+<label for="notes">Notiz</label>
+<textarea id="notes" name="notes" placeholder="Optional" rows="3"></textarea>
+<div class="summary" id="summary">Bitte wählen Sie Datum und Uhrzeit.</div>
+<button type="submit">Termin anfragen</button>
+</form>
+</div>
+</div>
+</div>
 <script>
 // ---------- CONFIG ----------
 const config = {
@@ -331,7 +325,7 @@ function updateSummary(){
 document.getElementById("prevWeek").onclick = ()=>{ monday.setDate(monday.getDate()-7); renderWeek(); selectDay(new Date(monday)); };
 document.getElementById("nextWeek").onclick = ()=>{ monday.setDate(monday.getDate()+7); renderWeek(); selectDay(new Date(monday)); };
 
-document.getElementById("bookingForm").addEventListener("submit", (e)=>{
+document.getElementById("bookingForm").addEventListener("submit", async (e)=>{
   e.preventDefault();
   if(!selectedSlot){ alert("Bitte zuerst eine Uhrzeit wählen."); return; }
   const name = document.getElementById("name").value.trim();
@@ -340,16 +334,28 @@ document.getElementById("bookingForm").addEventListener("submit", (e)=>{
   const reason = document.getElementById("reason").value.trim();
   const notes = document.getElementById("notes").value.trim();
 
-  const subject = encodeURIComponent("Termin-Anfrage " + name);
-  const body = encodeURIComponent(
-`Name: ${name}
-Telefon: ${phone}
-E-Mail: ${email}
-Anliegen: ${reason}
-Datum: ${formatHuman(selectedDay)}
-Uhrzeit: ${formatTime(selectedSlot)} (${config.tz})
-Notiz: ${notes}`);
-  window.location.href = `mailto:info@mls-gutachten.de?subject=${subject}&body=${body}`;
+  const payload = {
+    name, phone, email, reason, notes,
+    dateHuman: formatHuman(selectedDay),
+    timeHuman: formatTime(selectedSlot),
+    tz: config.tz
+  };
+
+  const API_BASE_URL = window.API_BASE_URL || (typeof NEXT_PUBLIC_API_BASE_URL !== "undefined" ? NEXT_PUBLIC_API_BASE_URL : "https://DEIN-PROJEKT.vercel.app");
+
+  try{
+    const res = await fetch(`${API_BASE_URL}/api/appointment`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+    if(!res.ok) throw new Error(await res.text());
+    alert("Vielen Dank! Ihre Terminanfrage wurde gesendet.");
+    e.target.reset();
+  }catch(err){
+    console.error(err);
+    alert("Senden fehlgeschlagen. Bitte später erneut versuchen.");
+  }
 });
 
 function formatOffset(d){
