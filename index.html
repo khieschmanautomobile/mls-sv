@@ -516,7 +516,7 @@ video::-webkit-media-controls-enclosure{ overflow:hidden; }
 }
 </script>
 </head>
-<body><script>window.API_BASE_URL = window.API_BASE_URL || "https://DEIN-PROJEKT.vercel.app";</script>
+<body>
 <!-- ===== Header ===== -->
 <header>
 <div class="container nav">
@@ -662,7 +662,7 @@ video::-webkit-media-controls-enclosure{ overflow:hidden; }
 <!-- ✅ FormSubmit: sendet ohne Mailprogramm (einfach & kostenlos). 
              Du erhältst beim ersten Mal eine Verifizierungs‑Mail. Danach funktionieren Einsendungen direkt.
              Mehr erfahren: formsubmit.co -->
-<form action="https://formsubmit.co/Khieschman@mls-sv.de" id="contactForm" method="POST">
+<form id="contactForm">
 <!-- FormSubmit Optionen -->
 <input name="_captcha" type="hidden" value="false"/>
 <input name="_template" type="hidden" value="table"/>
@@ -1023,5 +1023,48 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 <!-- /Services Modals -->
-</body>
+<script>
+// --- Vercel API base (set your real project URL once) ---
+window.API_BASE_URL = window.API_BASE_URL || "https://DEIN-VERCEL-PROJEKT.vercel.app";
+
+(function(){
+  const form = document.getElementById('contactForm');
+  if(!form) return;
+
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    const data = {
+      form: 'Kontakt',
+      name:   form.querySelector('[name="name"]')?.value?.trim() || '',
+      email:  form.querySelector('[name="email"]')?.value?.trim() || '',
+      phone:  form.querySelector('[name="telefon"]')?.value?.trim() || '',
+      concern:form.querySelector('[name="anliegen"]')?.value || '',
+      message:form.querySelector('[name="nachricht"]')?.value?.trim() || '',
+      tz: Intl.DateTimeFormat().resolvedOptions().timeZone || 'Europe/Berlin'
+    };
+
+    if(!data.name || !data.email){
+      alert('Bitte Name und E-Mail ausfüllen.');
+      return;
+    }
+
+    try{
+      const res = await fetch(`${window.API_BASE_URL}/api/appointment`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      if(!res.ok){
+        const msg = await res.text();
+        throw new Error(msg || 'Serverfehler');
+      }
+      alert('Vielen Dank! Ihre Nachricht wurde gesendet.');
+      form.reset();
+    }catch(err){
+      console.error(err);
+      alert('Senden fehlgeschlagen. Bitte später erneut versuchen.');
+    }
+  });
+})();
+</script></body>
 </html>
